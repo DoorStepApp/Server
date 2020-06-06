@@ -3,6 +3,8 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
+import buyerRouter from './routes/buyer';
+
 const app = express();
 
 app.use(morgan('dev'));
@@ -10,8 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (_req, res) => {
-  res.send('Hello World!');
+  res.send('Welcome To DoorStep!');
 });
+
+app.use('/buyer', buyerRouter);
 
 mongoose
   .connect(
