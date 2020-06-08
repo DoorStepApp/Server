@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import buyerRouter from './routes/buyer';
+import sellerRouter from './routes/seller';
+import productRouter from './routes/products';
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/buyer', buyerRouter);
+app.use('/seller', sellerRouter);
+app.use('/products', productRouter);
 
 mongoose
   .connect(
